@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class StatelessServiceTest {
 
@@ -19,7 +19,7 @@ class StatelessServiceTest {
         int orderPriceA = statelessService1.order("userA", 10000);
         statelessService2.order("userB", 20000);
 
-        Assertions.assertThat(orderPriceA).isEqualTo(10000);
+        assertThat(orderPriceA).isEqualTo(10000);
     }
 
     static class TestConfig {

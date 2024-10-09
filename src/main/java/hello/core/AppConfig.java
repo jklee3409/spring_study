@@ -20,18 +20,26 @@ public class AppConfig {
     // @Bean이 적힌 메서드를 모두 호출하여 반환된 객체를 스프링 컨테이너에 등록.
     // 스프링 빈은 @Bean이 붙은 메서드의 명을 스프링 빈의 이름으로 사용한다.
 
+
+    // @Bean memberService -> New MemoryMemberRepository()
+    // @Bean orderService -> New MemoryMemberRepository()
+    // singleton이 깨지는 것일까? -> 그렇지 않다!!!
+
     @Bean
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
