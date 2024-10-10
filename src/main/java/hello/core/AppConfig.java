@@ -12,6 +12,8 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+// Appconfig에도 @Configuration이 붙어있기 때문에 ComponentScan의 대상이 된다.
+// fileter를 사용하여 componetscan 대상에 configuration을 뺀 이유.
 
 // 스프링은 @Configuration이 붙은 AppConfig를 설정 정보로 사용한다.
 @Configuration
